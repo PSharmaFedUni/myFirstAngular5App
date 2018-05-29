@@ -1,0 +1,53 @@
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+     {{pageTitle}}
+  </div>
+  <div class='panel-body'>
+      <div class='row'>
+          <div class='col-md-2'>Filter by:</div>
+          <div class='col-md-4'>
+              <input type='text'
+              [(ngModel)]='listFilter'/>
+          </div>
+      </div>
+      <div class='row'>
+          <div class='col-md-6'>
+              <h3>Filtered by:{{listFilter}} </h3>
+          </div>
+      </div>
+      <div class='table-responsive'>
+          <table class='table' *ngIf ='movies && movies.length'>
+              <thead>
+                  <tr>
+                      <th>
+                          <button class='btn btn-primary'
+                          (click)='toggleImage()'>
+                             {{showImage?'Hide':'Show'}} Image
+                          </button>
+                      </th>
+                      <th>Title</th>
+                      <th>Year</th>
+                      <th>Type</th>
+                      <th>Price</th>
+                      <th>Star Rating</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor='let movie of filteredMovies'>
+                      <td>
+                          <img *ngIf='showImage' [src]='movie.Poster' [title]='movie.Title'
+                          [style.width.px]='imageWidth' 
+                          [style.margin.px]='imageMargin'/>
+                      </td>
+                      <td>{{movie.Title|uppercase| convertToSpaces: '-'| convertToSpaces: ':'}}</td>
+                      <td>{{movie.Year}}</td>
+                      <td>{{movie.Type|uppercase}}</td>
+                      <td>{{movie.Price|currency:'AUD':true:'1.2-2'}}</td>
+                      <td><app-star [rating]='movie.Rating'
+                        (ratingClicked)='onRatingClicked($event)'></app-star></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
