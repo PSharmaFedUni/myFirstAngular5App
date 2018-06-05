@@ -43,8 +43,11 @@
                       <td>{{movie.Year}}</td>
                       <td>{{movie.Type|uppercase}}</td>
                       <td>{{movie.Price|currency:'AUD':true:'1.2-2'}}</td>
-                      <td><app-star [rating]='movie.Rating'
-                        (ratingClicked)='onRatingClicked($event)'></app-star></td>
+                      <td>
+                          <app-star [rating]='movie.Rating'
+                            (ratingClicked)='onRatingClicked($event)'>
+                            </app-star>
+                        </td>
                   </tr>
               </tbody>
           </table>
