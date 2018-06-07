@@ -13,6 +13,7 @@ export class MovieListComponent implements OnInit  {
   imageMargin: number = 2;
   showImage: boolean = false;
   _listFilter: string;
+  errorMessage: string;
   get listFilter(): string {
       return this._listFilter;
   }
@@ -37,8 +38,12 @@ export class MovieListComponent implements OnInit  {
     this.showImage = !this.showImage;
   }
   ngOnInit(): void{
-     this.movies = this._movieService.getMovies();
-     this.filteredMovies = this.movies;
+     this._movieService.getMovies().subscribe(movies => 
+        {   this.movies = movies;
+            this.filteredMovies = this.movies;
+        },
+         error => this.errorMessage = <any>error);
+     
   }
   
 
