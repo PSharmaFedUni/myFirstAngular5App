@@ -28,8 +28,8 @@
                       <th>Title</th>
                       <th>Year</th>
                       <th>Type</th>
-                      <th>Price</th>
-                      <th>Star Rating</th>
+                      <!-- <th>Price</th>
+                      <th>Star Rating</th> -->
                   </tr>
               </thead>
               <tbody>
@@ -42,12 +42,12 @@
                       <td>{{movie.Title|uppercase| convertToSpaces: '-'| convertToSpaces: ':'}}</td>
                       <td>{{movie.Year}}</td>
                       <td>{{movie.Type|uppercase}}</td>
-                      <td>{{movie.Price|currency:'AUD':true:'1.2-2'}}</td>
+                      <!-- <td>{{movie.Price|currency:'AUD':true:'1.2-2'}}</td>
                       <td>
                           <app-star [rating]='movie.Rating'
                             (ratingClicked)='onRatingClicked($event)'>
                             </app-star>
-                        </td>
+                        </td> -->
                   </tr>
               </tbody>
           </table>

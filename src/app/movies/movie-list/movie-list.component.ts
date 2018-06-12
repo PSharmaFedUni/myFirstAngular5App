@@ -26,9 +26,9 @@ export class MovieListComponent implements OnInit  {
   constructor(private _movieService:MovieService){
      
   }
-  onRatingClicked(message: string): void {
-    this.pageTitle = 'Movie List: ' + message;
-}
+//   onRatingClicked(message: string): void {
+//     this.pageTitle = 'Movie List: ' + message;
+// }
   performFilter(filterBy: string): IMovie[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.movies.filter((movie: IMovie) =>
